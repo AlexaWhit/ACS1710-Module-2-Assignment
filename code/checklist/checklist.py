@@ -1,95 +1,109 @@
-#********      CAPTAIN RAINBOW'S COLOR CHECKLIST         *******#
+#**********************      CAPTAIN RAINBOW'S COLOR CHECKLIST         *********************#
 
 
-#-----------------------CREATE CHECKLIST-------------------------#
-from ast import If
-
-from symbol import if_stmt
+#-----------------------CREATE EMPTY CHECKLIST-------------------------#
+from re import A
 
 
-print()
-checklist = list ()
+checklist = list()
 
 #-----------------------DEFINE FUNCTIONS-------------------------#
-# CREATE - add the item and add it to the end of the checklist
+# CREATE(A) - add the item and add it to the end of the checklist
 def create(item):
     checklist.append(item)
 
 
-# READ - return the value of the specific index (ex. [0] = Blue Tie)
+# READ(R) - return the value of the specific index (ex. [0] = Blue Tie)
 def read(index):
-    if index <= len(checklist):
-        print(checklist[index])
+   return checklist[index]
 
 
-# UPDATE - updating/writing over/reassigning the data at a specific index
+# LIST ALL THE ITEMS(D) - loop through the list and 
+def list_all_items():
+    index = 0
+    for list_item in checklist:
+        print("{}: {}".format(index,list_item)) #we need to change index from int to str
+        index += 1
+
+
+# UPDATE(U) - updating/writing over/reassigning the data at a specific index
 def update(index, item):
     checklist[index] = item
 
 
-# DESTROY - remove the input at the specific index
-def destroy(index):
-    checklist.pop(index)
-
-
-# LIST ALL THE ITEMS - loop through the list and 
-colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
-def list_all_colors():
-    index = 0
-    for color in colors:
-        print(f"{index} + {color}") #we need to change index from int to str
-        index += 1
-
-        
-clothing = ["shirt", "pants", "cape", "hat", "sockone", "socktwo", "bowtie"]
-def list_all_clothing():
-    index = 0
-    for clothing_item in clothing:
-        print(str(index) + list_item) #we need to change index from int to str
-        index += 1
-
-
-# MARK ITEM AS COMPLETED
+# MARK ITEM AS COMPLETED(M)
 def mark_completed(index):
-    if index <= len(checklist):
     completed_item = "√" + checklist[index]
     update(index, completed_item)
+    list_all_items()
+
+# DELETE/DESTROY(X) - remove the input at the specific index
+def destroy(index):
+    checklist.pop(index)
+    print("The item has been deleted.")
     
 
 
 # USER INPUT
 def user_input(prompt):
     #the input funtion will display a message to the user in the terminal and will wait for user to input response
-    user_input = input(prompt)
+    user_input = input(prompt).lower() #.lower will allow for lower-case too!
     return user_input  
 
 
-# WHILE LOOPS
+
+
+
+#-----------------------USER SELECTIONS-------------------------#
+def select(function_code):
+    #Create item in checklist
+    if function_code == "a": 
+        input_item = user_input("Enter which item you would like to ADD to the list: ")
+        create(input_item)
+    #Read item in checklist
+    elif function_code == "r": 
+        item_index = user_input("Which item would you like to view? Please enter the item number: ")
+        print(read(int(item_index)))
+    #Display/Print all items
+    elif function_code == "d": 
+        list_all_items()
+    #Update an item
+    elif function_code == "u": 
+        item_index = int(user_input("Please enter the index number of the item you would like to UPDATE: "))
+        updated_item = user_input("Please enter your updated item: ")
+        update(item_index, updated_item)
+    #Mark item as completed
+    elif function_code == "m": 
+        item_index == int(user_input("Please enter the index number of the item you would like to MARK AS COMPLETED: "))
+        mark_completed(item_index)
+    #Delete item in checklist
+    elif function_code == "x": 
+        item_index == int(user_input("Please enter the index number of the item you would like to DELETE: "))
+        destroy(item_index)
+    #Quit here/stop our loop
+    elif function_code == "q": 
+        clearTerminal()
+        return False
+    #Catch all - if user enters something else
+    else: 
+        print("Unknown Option - Please Try Again")
+    return True
+    
+
+
+
+#Stretch Goal - clear terminal
+def clearTerminal():
+    print("\033[H\033[J")
+
+
+#-----------------------WHILE LOOP-------------------------#
+#to run the checklist
 running = True
 while running:
     selection = user_input(
-        "Press A to add to list, R to Read from list, L to Display list, and Q to Quit: ")
-    select(selection)
-
-
-# SELECT
-def select(function_code):
-    #Create item in checklist
-    if function_code == "A": 
-        input_item = user_input("Enter which item you are adding to the list: ")
-        create(input_item)
-    #Read item in checklist
-    elif function_code == "R": 
-        item_index = user_input("Which item would you like to view? Please enter the item number: ")
-        read(item_index)
-    elif function_code == "L": #Display/Print all items
-        list_all_items()
-    elif function_code == "Q": #Quit here/stop our loop
-        return False
-    else: #Catch all - if user enters something else
-        print("Unknown Option")
-    return True
-   
+        "Welcome to Captain Rainbow's Colorful Checklist!\nPress A to Add to list\nPress R to Read from list\nPress D to Display list\nPress U to Update an item in the list\nPress M to Mark an item as complete\nPress X to Delete an item\nPress Q to Quit\nPlease enter your selection here: ")
+    running = select(selection)
 
 #TESTING
 #def test():
@@ -114,9 +128,9 @@ def select(function_code):
 
 
 
+#test()
+
+
  
 
 
-#--------------------------TESTING AREA---------------------------#    
-
-test()
