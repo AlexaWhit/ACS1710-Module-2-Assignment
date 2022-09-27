@@ -2,9 +2,6 @@
 
 
 #-----------------------CREATE EMPTY CHECKLIST-------------------------#
-from re import A
-
-
 checklist = list()
 
 #-----------------------DEFINE FUNCTIONS-------------------------#
@@ -74,11 +71,11 @@ def select(function_code):
         update(item_index, updated_item)
     #Mark item as completed
     elif function_code == "m": 
-        item_index == int(user_input("Please enter the index number of the item you would like to MARK AS COMPLETED: "))
+        item_index = int(user_input("Please enter the index number of the item you would like to MARK AS COMPLETED: "))
         mark_completed(item_index)
     #Delete item in checklist
     elif function_code == "x": 
-        item_index == int(user_input("Please enter the index number of the item you would like to DELETE: "))
+        item_index = int(user_input("Please enter the index number of the item you would like to DELETE: "))
         destroy(item_index)
     #Quit here/stop our loop
     elif function_code == "q": 
