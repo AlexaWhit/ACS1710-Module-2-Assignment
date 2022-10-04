@@ -1,0 +1,88 @@
+html {
+    height: 100%;
+}
+
+body {
+    font-family: Helvetica; 
+}
+
+.container{
+    width: 200px;
+    height: 200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+    grid-template-areas: "n i"
+                         "o g"
+}
+
+.name-cell{
+    grid-area: n;
+    display: flex;
+    flex-direction: column;
+    justify-items: start;
+    justify-content: center;
+    align-items: flex-start;
+    border: 1px;
+    padding: 0.5em;
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    line-height: 0%;
+
+}
+
+.input-cell{
+    grid-area: i;
+    display: flex;
+    flex-direction: column;
+    justify-items: start;
+    align-items: flex-start;
+    justify-content: center;
+    border: 1px;
+    padding: 0.5em;
+    width: 200px;
+    height: 200px;
+    line-height: 2em;
+    border: 1px solid black;
+}
+
+.output-cell{
+    grid-area: o;
+    display: flex;
+    flex-direction: column;
+    justify-items: start;
+    align-items: flex-start;
+    justify-content: center;
+    line-height: 0%;
+    padding: 0.5em;
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+}
+
+.color-cell{
+    grid-area: g;
+    display: flex;
+    flex-direction: column;
+    justify-items: start;
+    align-items: flex-start;
+    justify-content: center;
+    border: 1px;
+    padding: 0.5em;
+    line-height: 0%;
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+}
+
+.box{
+    justify-self: start;
+    border: 1px;
+    padding: 1em;
+    width: 5px;
+    height: 30px;
+    border: 1px solid black;
+    margin: 0;
+
+}

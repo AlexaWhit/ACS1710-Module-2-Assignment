@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+        <title>Alexa Whitney ACS1700 FEW Assessment</title>
+        
+</head>
+
+<body>
+    <div class="container" id="container">
+        <section id="name">
+            <div class="name-cell" id="name-cell">
+                <h1>Alexa Whitney</h1>
+                <p> FEW Assessment</p>
+            </div>
+        </section>
+
+        <section id="inputs">
+            <div class="input-cell" id="input-cell">
+                <label for="width">Width:</label>
+                <input id="width-input" type="number" value="0">
+                <label for="height">Height:</label>
+                <input id="height-input" type="number" value="0">
+                <label for="color">Color:</label>
+                <input id="color-input" type="color" value="#000000">
+            </div>
+        </section>
+
+        <section id="outputs">
+            <div class="output-cell" id="output-cell">
+                <h3>Width</h2>
+                <p id="display-width"></p>
+                <h3>Height</h2>
+                <p id="display-height"></p>
+                <h3>Color</h2>
+                <p id="display-color-hex"></p>
+            </div>
+        </section>
+
+        <section id="colorbox">
+            <div class="color-cell" id="color-cell">
+                <h2>Color</h2>
+                <div class="box" id="box"></div>
+            </div>
+        </section> 
+    </div>
+    <script src="scripts.js" type="module"></script>
+</body>
+</html>
