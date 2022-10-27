@@ -14,6 +14,7 @@ def homepage():
     """A homepage with handy links for your convenience."""
     return render_template('home.html')
 
+## FROYO ##
 @app.route('/froyo')
 def choose_froyo():
     """Shows a form to collect the user's Fro-Yo order."""
@@ -34,15 +35,29 @@ def show_froyo_results():
     users_froyo_toppings = request.args.get('toppings')
     return f'You ordered {users_froyo_flavor} flavored Fro-Yo with the following toppings: {users_froyo_toppings}!'
 
+## FAVORITE THINGS ##
 @app.route('/favorites')
 def favorites():
     """Shows the user a form to choose their favorite color, animal, and city."""
-    pass
+    return """
+    <form action="/favorites_results" method="GET">
+        What is your favorite color? <br/>
+        <input type="text" name="color"><br/>
+        What is your favorite animal? <br/>
+        <input type="text" name="animal"><br/>
+        What is your favorite city? <br/>
+        <input type="text" name="city"><br/>
+        <input type="submit" value="Submit!">
+    </form>
+    """
 
 @app.route('/favorites_results')
 def favorites_results():
     """Shows the user a nice message using their form results."""
-    pass
+    users_fav_color = request.args.get('color')
+    users_fav_animal = request.args.get('animal')
+    users_fav_city = request.args.get('city')
+    return f'Wow, I did not know {users_fav_color} {users_fav_animal} lived in {users_fav_city}!'
 
 @app.route('/secret_message')
 def secret_message():
