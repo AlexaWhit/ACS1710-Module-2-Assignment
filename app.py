@@ -77,25 +77,12 @@ def message_results():
 @app.route('/calculator')
 def calculator():
     """Shows the user a form to enter 2 numbers and an operation."""
-    return """
-    <form action="/calculator_results" method="GET">
-        Please enter 2 numbers and select an operator.<br/><br/>
-        <input type="number" name="operand1">
-        <select name="operation">
-            <option value="add">+</option>
-            <option value="subtract">-</option>
-            <option value="multiply">*</option>
-            <option value="divide">/</option>
-        </select>
-        <input type="number" name="operand2">
-        <input type="submit" value="Submit!">
-    </form>
-    """
+    return render_template('calculator_form.html')
 
 @app.route('/calculator_results')
 def calculator_results():
     """Shows the user the result of their calculation."""
-    users_number1= request.args.get('operand1')
+    users_number1 = request.args.get('operand1')
     number1 = int(users_number1)
     users_number2= request.args.get('operand2')
     number2 = int(users_number2)
@@ -112,8 +99,20 @@ def calculator_results():
     elif users_math == "divide":
         result = number1 / number2
         return f'You chose to {users_math} {users_number1} and {users_number2}. Your result is {result}!'
+
+    # --- I HAVE NO IDEA HOW TO DO THE CONTEXT DICTIONARY WITH ALSO NEEDING THE VARIABLES ABOVE TO DO THE MATH 
+    # -- WHERE DO I PUT THE LOGIC?? ##
+    context = {
+        'users_number1': request.args.get('operand1'),
+        'number1': int(users_number1),
+        'users_number2': request.args.get('operand2'),
+        'number2': int(users_number2),
+        'users_math': request.args.get('operation')
+    }
+    return render_template('calculator_results.html', **context)
   
 
+## HOROSCOPE ##
 
 HOROSCOPE_PERSONALITIES = {
     'aries': 'Adventurous and energetic',

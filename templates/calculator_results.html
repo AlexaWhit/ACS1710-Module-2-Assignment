@@ -4,12 +4,16 @@
         <title>Calculator Results</title>
     </head>
     <body>
-        <!-- Your HTML code goes here! -->
-
-
-
-
-
-        
+        {% block content %}
+            {% if users_math == 'add' %}
+                <h5>You chose to {{users_math}} {{users_number1}} and {{users_number2}}. Your result is {{result}}!</h5>
+            {% elif users_math == 'subtract' %}
+                <h5>You chose to {{users_math}} {{users_number1}} and {{users_number2}}. Your result is {{result}}!</h5>
+            {% elif users_math == 'multiply' %}
+                <h5>You chose to {{users_math}} {{users_number1}} and {{users_number2}}. Your result is {{result}}!</h5>
+            {% elif users_math == 'divide' %}
+                <h5>You chose to {{users_math}} {{users_number1}} and {{users_number2}}. Your result is {{result}}!</h5>
+            {% endif %}
+        {% endblock %}
     </body>
 </html>
