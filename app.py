@@ -79,6 +79,7 @@ def message_results():
     secret = sort_letters(users_message)
     return f'Here is your secret message! <br/> {secret}'
 
+## CALCULATOR ##
 @app.route('/calculator')
 def calculator():
     """Shows the user a form to enter 2 numbers and an operation."""
@@ -100,7 +101,24 @@ def calculator():
 @app.route('/calculator_results')
 def calculator_results():
     """Shows the user the result of their calculation."""
-    pass
+    users_number1= request.args.get('operand1')
+    number1 = int(users_number1)
+    users_number2= request.args.get('operand2')
+    number2 = int(users_number2)
+    users_math = request.args.get('operation')
+    if users_math == "add":
+        result = number1 + number2
+        return f'You chose to {users_math} {users_number1} and {users_number2}. Your result is {result}!'
+    elif users_math == "subtract":
+        result = number1 - number2
+        return f'You chose to {users_math} {users_number1} and {users_number2}. Your result is {result}!'
+    elif users_math == "multiply":
+        result = number1 * number2
+        return f'You chose to {users_math} {users_number1} and {users_number2}. Your result is {result}!'
+    elif users_math == "divide":
+        result = number1 / number2
+        return f'You chose to {users_math} {users_number1} and {users_number2}. Your result is {result}!'
+  
 
 
 HOROSCOPE_PERSONALITIES = {
