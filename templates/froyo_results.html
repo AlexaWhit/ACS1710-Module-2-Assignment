@@ -4,12 +4,8 @@
         <title>Froyo Results</title>
     </head>
     <body>
-        <!-- Your HTML code goes here! -->
-
-
-
-
-
-        
+        {% block content %}
+        <h3>You ordered {{froyo_flavor}} flavored Fro-Yo with the following toppings: {{froyo_toppings}}!</h3>
+        {% endblock %}
     </body>
 </html>
