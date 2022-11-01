@@ -6,13 +6,13 @@
     <body>
         {% block content %}
             {% if operator == 'add' %}
-                <h5>You chose to {{operator}} {{number1}} and {{number2}}. Your result is {{result}}!</h5>
+                <h5>You chose to {{operator}} {{number1}} and {{number2}}. Your result is: {{result}}</h5>
             {% elif operator == 'subtract' %}
-                <h5>You chose to {{operator}} {{number1}} and {{number2}}. Your result is {{result}}!</h5>
+                <h5>You chose to {{operator}} {{number1}} and {{number2}}. Your result is: {{result}}</h5>
             {% elif operator == 'multiply' %}
-                <h5>You chose to {{operator}} {{number1}} and {{number2}}. Your result is {{result}}!</h5>
+                <h5>You chose to {{operator}} {{number1}} and {{number2}}. Your result is: {{result}}</h5>
             {% elif operator == 'divide' %}
-                <h5>You chose to {{operator}} {{number1}} and {{number2}}. Your result is {{result}}!</h5>
+                <h5>You chose to {{operator}} {{number1}} and {{number2}}. Your result is: {{result}}</h5>
             {% endif %}
         {% endblock %}
     </body>
