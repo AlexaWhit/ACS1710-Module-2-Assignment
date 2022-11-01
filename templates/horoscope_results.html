@@ -4,11 +4,32 @@
         <title>Horoscope Results</title>
     </head>
     <body>
-        <!-- Your HTML code goes here! -->
-
-        
-
-        
-        
+        {% block content %}
+            {% if horoscope_sign == 'aries' %}
+                <h5>Hello {{users_name}}! Your horoscope sign is {{horoscope_sign}} with a personality of {{users_personality}}! Your lucky number is {{lucky_number}}!</h5>
+            {% elif horoscope_sign == 'taurus' %}
+                <h5>Hello {{users_name}}! Your horoscope sign is {{horoscope_sign}} with a personality of {{users_personality}}! Your lucky number is {{lucky_number}}!</h5>
+            {% elif horoscope_sign == 'gemini' %}
+                <h5>Hello {{users_name}}! Your horoscope sign is {{horoscope_sign}} with a personality of {{users_personality}}! Your lucky number is {{lucky_number}}!</h5>
+            {% elif horoscope_sign == 'cancer' %}
+                <h5>Hello {{users_name}}! Your horoscope sign is {{horoscope_sign}} with a personality of {{users_personality}}! Your lucky number is {{lucky_number}}!</h5>
+            {% elif horoscope_sign == 'leo' %}
+                <h5>Hello {{users_name}}! Your horoscope sign is {{horoscope_sign}} with a personality of {{users_personality}}! Your lucky number is {{lucky_number}}!</h5>
+            {% elif horoscope_sign == 'virgo' %}
+                <h5>Hello {{users_name}}! Your horoscope sign is {{horoscope_sign}} with a personality of {{users_personality}}! Your lucky number is {{lucky_number}}!</h5>
+            {% elif horoscope_sign == 'libra' %}
+                <h5>Hello {{users_name}}! Your horoscope sign is {{horoscope_sign}} with a personality of {{users_personality}}! Your lucky number is {{lucky_number}}!</h5>
+            {% elif horoscope_sign == 'scorpio' %}
+                <h5>Hello {{users_name}}! Your horoscope sign is {{horoscope_sign}} with a personality of {{users_personality}}! Your lucky number is {{lucky_number}}!</h5>
+            {% elif horoscope_sign == 'sagittarius' %}
+                <h5>Hello {{users_name}}! Your horoscope sign is {{horoscope_sign}} with a personality of {{users_personality}}! Your lucky number is {{lucky_number}}!</h5>
+            {% elif horoscope_sign == 'capricorn' %}
+                <h5>Hello {{users_name}}! Your horoscope sign is {{horoscope_sign}} with a personality of {{users_personality}}! Your lucky number is {{lucky_number}}!</h5>
+            {% elif horoscope_sign == 'aquarius' %}
+                <h5>Hello {{users_name}}! Your horoscope sign is {{horoscope_sign}} with a personality of {{users_personality}}! Your lucky number is {{lucky_number}}!</h5>
+            {% elif horoscope_sign == 'pisces' %}
+                <h5>Hello {{users_name}}! Your horoscope sign is {{horoscope_sign}} with a personality of {{users_personality}}! Your lucky number is {{lucky_number}}!</h5>
+            {% endif %}
+        {% endblock %}
     </body>
 </html>
