@@ -82,32 +82,30 @@ def calculator():
 @app.route('/calculator_results')
 def calculator_results():
     """Shows the user the result of their calculation."""
-    users_number1 = request.args.get('operand1')
-    number1 = int(users_number1)
-    users_number2= request.args.get('operand2')
-    number2 = int(users_number2)
-    users_math = request.args.get('operation')
-    if users_math == "add":
+    number1 = int(request.args.get('operand1'))
+    number2= int(request.args.get('operand2'))
+    operator = request.args.get('operation')
+
+    if operator == "add":
         result = number1 + number2
-        return f'You chose to {users_math} {users_number1} and {users_number2}. Your result is {result}!'
-    elif users_math == "subtract":
+        return f'You chose to {operator} {number1} and {number2}. Your result is {result}!'
+    elif operator == "subtract":
         result = number1 - number2
-        return f'You chose to {users_math} {users_number1} and {users_number2}. Your result is {result}!'
-    elif users_math == "multiply":
+        return f'You chose to {operator} {number1} and {number2}. Your result is {result}!'
+    elif operator == "multiply":
         result = number1 * number2
-        return f'You chose to {users_math} {users_number1} and {users_number2}. Your result is {result}!'
-    elif users_math == "divide":
+        return f'You chose to {operator} {number1} and {number2}. Your result is {result}!'
+    elif operator == "divide":
         result = number1 / number2
-        return f'You chose to {users_math} {users_number1} and {users_number2}. Your result is {result}!'
+        return f'You chose to {operator} {number1} and {number2}. Your result is {result}!'
 
     # --- I HAVE NO IDEA HOW TO DO THE CONTEXT DICTIONARY WITH ALSO NEEDING THE VARIABLES ABOVE TO DO THE MATH 
     # -- WHERE DO I PUT THE LOGIC?? ##
     context = {
-        'users_number1': request.args.get('operand1'),
-        'number1': int(users_number1),
-        'users_number2': request.args.get('operand2'),
-        'number2': int(users_number2),
-        'users_math': request.args.get('operation')
+        'number1': number1,
+        'number2': number2,
+        'operator': operator,
+        'result': result,
     }
     return render_template('calculator_results.html', **context)
   
