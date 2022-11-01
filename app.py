@@ -89,19 +89,13 @@ def calculator_results():
 
     if operator == "add":
         result = int(number1 + number2)
-        return f'You chose to {operator} {number1} and {number2}. Your result is: {result}'
     elif operator == "subtract":
         result = int(number1 - number2)
-        return f'You chose to {operator} {number1} and {number2}. Your result is: {result}'
     elif operator == "multiply":
         result = int(number1 * number2)
-        return f'You chose to {operator} {number1} and {number2}. Your result is: {result}'
     elif operator == "divide":
         result = int(number1 / number2)
-        return f'You chose to {operator} {number1} and {number2}. Your result is: {result}'
 
-    # --- I HAVE NO IDEA HOW TO DO THE CONTEXT DICTIONARY WITH ALSO NEEDING THE VARIABLES ABOVE TO DO THE MATH 
-    # -- WHERE DO I PUT THE LOGIC?? ##
     context = {
         'number1': number1,
         'number2': number2,
